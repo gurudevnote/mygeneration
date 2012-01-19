@@ -79,6 +79,7 @@ namespace Zeus
                 {
                     segment.Code = segment.Code.Replace(usingStatement, string.Empty);
                 }
+
                 foreach (string usingStatement in lisUsings)
                 {
                     segment.Code = usingStatement + "\n" + segment.Code;
