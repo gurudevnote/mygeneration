@@ -89,5 +89,11 @@ namespace Zeus
 			public const string PERL = "Perl";
 			public const string PHP = "PHP";	
 		}
+
+        public class Namespace
+        {
+            public const string CSHARP_USING_REGEX = "(using +[^;()\"'\n\r]+ *;)";
+            public const string VBNET_IMPORT_REGEX = @"(Imports +[^""()';\n\r]+ *[\r\n]+)";
+        }
 	}
 }
