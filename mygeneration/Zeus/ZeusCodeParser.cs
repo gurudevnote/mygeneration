@@ -2,6 +2,9 @@ using System;
 using System.IO;
 using System.Text;
 using System.Collections;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace Zeus
 {
@@ -47,7 +50,40 @@ namespace Zeus
 				{
 					ParsePure(engine, segment, reader, builder);
 				}
+
 				segment.Code = builder.ToString();
+                /**/
+                IList<string> lisUsings = new List<string>();
+                //TODO:HuyNH change some code to modfify using statement
+                try
+                {
+                    Regex regexObj = new Regex("(using +[^;()\"'\n\r]+ *;)");
+                    Match matchResults = regexObj.Match(segment.Code);
+                    while (matchResults.Success)
+                    {
+                        // matched text: matchResults.Value
+                        // match start: matchResults.Index
+                        // match length: matchResults.Length
+                        lisUsings.Add(matchResults.Value);
+                        matchResults = matchResults.NextMatch();
+                    }
+                }
+                catch (ArgumentException ex)
+                {
+                    // Syntax error in the regular expression
+                }
+
+                lisUsings = lisUsings.Distinct().ToList();
+
+                foreach (string usingStatement in lisUsings)
+                {
+                    segment.Code = segment.Code.Replace(usingStatement, string.Empty);
+                }
+                foreach (string usingStatement in lisUsings)
+                {
+                    segment.Code = usingStatement + "\n" + segment.Code;
+                }
+                 /**/
 			}
 
 		}
