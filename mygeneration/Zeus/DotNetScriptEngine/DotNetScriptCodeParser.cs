@@ -10,6 +10,7 @@ namespace Zeus.DotNetScript
 	public class DotNetScriptCodeParser : IZeusCodeParser
 	{
 		//TODO: HuyNH, define directive statement: FILE, REFERECNCE, NAMESPACE
+        protected const string INCLUDE_FILE_COMPILE = "FILECOMPILE ";
         protected const string INCLUDE_FILE = "FILE ";
 		protected const string INCLUDE_REFERENCE = "REFERENCE ";
 		protected const string INCLUDE_REFERENCE_ALT = "REF ";
