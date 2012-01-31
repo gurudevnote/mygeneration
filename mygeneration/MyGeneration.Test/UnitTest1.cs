@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Zeus;
 
 namespace MyGeneration.Test
 {
@@ -65,7 +66,9 @@ namespace MyGeneration.Test
             //
             // TODO: Add test logic here
             //
-            Assert.AreEqual(1, 3);
+            //Assert.AreEqual(1, 3);
+            ZeusTemplate _template = new ZeusTemplate("Test.txt");
+            
         }
     }
 }

@@ -48,6 +48,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineInterface\PluginInterfaces.csproj">
+      <Project>{61B369D1-95DD-4158-9F30-2E051CEB9D50}</Project>
+      <Name>PluginInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zeus\Zeus.csproj">
+      <Project>{CE8A697D-D45C-4E60-838D-E36980227543}</Project>
+      <Name>Zeus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Test.zeus" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
