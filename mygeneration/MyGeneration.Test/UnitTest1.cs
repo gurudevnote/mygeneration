@@ -67,8 +67,10 @@ namespace MyGeneration.Test
             // TODO: Add test logic here
             //
             //Assert.AreEqual(1, 3);
-            ZeusTemplate _template = new ZeusTemplate("Test.txt");
-            
+            string dir = TestContext.TestDir;
+            string directory = @"E:\source code\codegenerate\mygeneration\MyGeneration.Test\Test.zeus";
+            ZeusTemplate _template = new ZeusTemplate(directory);
+            string sourceCode = _template.BodySegment.Code;
         }
     }
 }
