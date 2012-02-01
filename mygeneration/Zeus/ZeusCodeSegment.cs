@@ -108,7 +108,7 @@ namespace Zeus
 				{
 					ZeusCodeParser.ParseCode(this);
 				} 
-				catch 
+				catch(Exception ex)
 				{
 					this._code = string.Empty;
 				}

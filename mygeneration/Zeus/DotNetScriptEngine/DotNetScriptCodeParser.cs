@@ -37,7 +37,13 @@ namespace Zeus.DotNetScript
 			string data = null, path = null;
 			string returnValue = string.Empty;
 
-			if (text.StartsWith(INCLUDE_FILE))
+            if (text.StartsWith(INCLUDE_FILE_COMPILE))
+            {
+                data = text.Substring(INCLUDE_FILE_COMPILE.Length).Trim();
+                path = DotNetScriptEngine.MakeAbsolute(data, segment.ITemplate.FilePath);
+                returnValue = this.IncludeFileCompile(path);
+            }
+			else if (text.StartsWith(INCLUDE_FILE))
 			{
 				data = text.Substring(INCLUDE_FILE.Length).Trim();
 				path = DotNetScriptEngine.MakeAbsolute(data, segment.ITemplate.FilePath);
@@ -208,6 +214,12 @@ namespace Zeus.DotNetScript
 			}
 
 			return returnval;
+        }
+
+        private string IncludeFileCompile(string filename)
+        {
+            IZeusTemplate compilerTemplate = new ZeusTemplate(filename);
+            return compilerTemplate.BodySegment.Code;
         }
 
         private void SetCompilerVersion(string ver, ArrayList extraData)
