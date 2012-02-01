@@ -23,6 +23,7 @@ namespace Zeus
 		{
 			public const string GROUP = "Group";
 			public const string TEMPLATE = "Template";
+            public const string INCLUDE_FUNCTION = "Function";
 		}
 
 		public class Modes
