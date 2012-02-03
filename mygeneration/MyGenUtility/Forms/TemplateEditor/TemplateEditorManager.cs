@@ -10,6 +10,7 @@ namespace MyGeneration
     public class TemplateEditorManager : EditorManager
     {
         public const string CSHARP_TEMPLATE = "C# Zeus Template";
+        public const string CSHARP_TEMPLATE_FUNCTION = "C# Zeus Template Function";
         public const string VBNET_TEMPLATE = "VB.Net Zeus Template";
         public const string VBSCRIPT_TEMPLATE = "VBScript Zeus Template";
         public const string JSCRIPT_TEMPLATE = "JScript Zeus Template";

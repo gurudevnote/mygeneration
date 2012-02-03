@@ -209,8 +209,14 @@ namespace Zeus
 				line = nextline;
 			}
 
-			builder.Insert(headerInsertIndex, codeParser.GetCustomHeaderCode(segment, ZeusFactory.IntrinsicObjectsArray));
-			builder.Append(codeParser.GetCustomFooterCode(segment, ZeusFactory.IntrinsicObjectsArray));
+            //HuyNH define new template function type:
+            //using: <%#FILECOMPILER filename.zeus%>
+
+            if (!segment.Template.Type.Equals(ZeusConstants.Types.INCLUDE_FUNCTION))
+            {
+                builder.Insert(headerInsertIndex, codeParser.GetCustomHeaderCode(segment, ZeusFactory.IntrinsicObjectsArray));
+                builder.Append(codeParser.GetCustomFooterCode(segment, ZeusFactory.IntrinsicObjectsArray));
+            }
 		}
 		#endregion
 

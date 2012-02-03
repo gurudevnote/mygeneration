@@ -15,7 +15,7 @@ namespace MyMeta.MySql5
         {
             InternalDriver drv = new InternalDriver
                 (typeof(ClassFactory)
-                , "Database=Test;Data Source=Griffo;User Id=anonymous;Password=;"
+                , "Database=Joomla_2.5.0_Beta2-Full_Package;Data Source=localhost;User Id=root;Password=;"
                 , false);
             drv.StripTrailingNulls = true;
             drv.RequiredDatabaseName = true;
