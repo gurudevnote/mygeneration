@@ -1,0 +1,27 @@
+﻿##|TYPE Template
+##|UNIQUEID cb793f18-de6a-430f-8ac7-4e606a0d7ce9
+##|TITLE include
+##|NAMESPACE 
+##|SOURCE_TYPE Source
+##|OUTPUT_LANGUAGE None
+##|GUI_ENGINE .Net Script
+##|GUI_LANGUAGE C#
+##|BODY_MODE Markup
+##|BODY_ENGINE .Net Script
+##|BODY_LANGUAGE C#
+##|BODY_TAG_START <%
+##|BODY_TAG_END %>
+##|BODY_BEGIN
+<%
+public partial class GeneratedTemplate : DotNetScriptTemplate
+{
+	public override void TestInclude()
+	{
+		%>
+		You can toggle in out of script like this
+		<%
+		output.writeln("Hello world.");
+	}
+}
+%>
+##|BODY_END

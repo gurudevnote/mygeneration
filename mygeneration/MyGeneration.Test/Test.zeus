@@ -1,6 +1,6 @@
 ﻿##|TYPE Template
 ##|UNIQUEID cb793f18-de6a-430f-8ac7-4e606a0d7ce9
-##|TITLE Untitled
+##|TITLE Test
 ##|NAMESPACE 
 ##|SOURCE_TYPE Source
 ##|OUTPUT_LANGUAGE None
@@ -18,7 +18,8 @@ public class GeneratedGui : DotNetScriptGui
 	public override void Setup()
 	{
 		// ** UNCOMMENT CODE BELOW TO SEE UI **
-		//ui.Width  = 100;
+
+		//ui.Width  = 100;
 		//ui.Height = 100;
 		//GuiLabel lblDemo = ui.AddLabel("lblDemo", "Demo", "Demo Tooltip");
 		//ui.ShowGui = true;
@@ -32,8 +33,8 @@ public class GeneratedGui : DotNetScriptGui
 ##|BODY_TAG_START <%
 ##|BODY_TAG_END %>
 ##|BODY_BEGIN
-<%
-public class GeneratedTemplate : DotNetScriptTemplate
+<%#FILECOMPILE include.zeus%><%
+public partial class GeneratedTemplate : DotNetScriptTemplate
 {
 	public GeneratedTemplate(ZeusContext context) : base(context) {}
 
