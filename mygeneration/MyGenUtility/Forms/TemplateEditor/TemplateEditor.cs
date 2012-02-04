@@ -2249,6 +2249,9 @@ namespace MyGeneration
                         if (this._template != null) this._template.Type = ZeusConstants.Types.GROUP;
 
                         break;
+                    case ZeusConstants.Types.INCLUDE_FUNCTION:
+                        if (this._template != null) this._template.Type = ZeusConstants.Types.INCLUDE_FUNCTION;
+                        break;
                 }
 
                 this._isDirty = true;

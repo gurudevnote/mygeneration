@@ -150,7 +150,8 @@ namespace Zeus
 			{
 				return new string[] {
 										ZeusConstants.Types.GROUP,
-										ZeusConstants.Types.TEMPLATE
+										ZeusConstants.Types.TEMPLATE,
+                                        ZeusConstants.Types.INCLUDE_FUNCTION
 									};
 			}
 		}
