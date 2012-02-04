@@ -1672,12 +1672,26 @@ namespace MyGeneration
             this.scintillaTemplateSource.Text = this._template.BodySegment.Code;
             this.scintillaTemplateSource.IsReadOnly = true;
 
-            this.scintillaGUICode.Clear();
-            this.scintillaGUICode.Text = this._template.GuiSegment.CodeUnparsed;
+            //HuyNH add code to remove GUICode and GuiSource in case type of template is function
+            if (!this._template.Type.Equals(ZeusConstants.Types.INCLUDE_FUNCTION))
+            {
+                this.scintillaGUICode.Clear();
+                this.scintillaGUICode.Text = this._template.GuiSegment.CodeUnparsed;
 
-            this.scintillaGuiSource.IsReadOnly = false;
-            this.scintillaGuiSource.Text = this._template.GuiSegment.Code;
-            this.scintillaGuiSource.IsReadOnly = true;
+                this.scintillaGuiSource.IsReadOnly = false;
+                this.scintillaGuiSource.Text = this._template.GuiSegment.Code;
+                this.scintillaGuiSource.IsReadOnly = true;
+            }
+            else
+            {
+                this.tabTemplateCode.Text = "Function Code";
+                this.tabTemplateSource.Text = "Function Source";
+                //this.tabControlTemplate.Controls.Remove(this.tabTemplateCode);                
+                //this.tabControlTemplate.Controls.Remove(this.tabTemplateSource);
+                this.tabControlTemplate.Controls.Remove(this.tabInterfaceCode);
+                this.tabControlTemplate.Controls.Remove(this.tabInterfaceSource);
+                this.tabControlTemplate.Controls.Remove(this.tabOutput);
+            }
 
             this.CurrentScintilla.LineScroll(0, tmpFirstLineVisible);
             this.CurrentScintilla.CurrentPos = tmpPos;
