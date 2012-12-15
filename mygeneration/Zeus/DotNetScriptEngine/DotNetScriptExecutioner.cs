@@ -127,7 +127,15 @@ namespace Zeus.DotNetScript
             get
             {
                 if (string.IsNullOrEmpty(_compilerVersion))
+                {
+                    string version = Environment.Version.ToString();
+                    if (!string.IsNullOrEmpty(version) && version.StartsWith("4.0"))
+                    {
+                        return "v4.0";
+                    }
+
                     return "v3.5";
+                }
                 else
                     return _compilerVersion;
             }
