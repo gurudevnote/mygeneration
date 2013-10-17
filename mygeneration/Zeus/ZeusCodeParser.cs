@@ -94,6 +94,9 @@ namespace Zeus
                         segment.Code = usingStatement + "\n" + segment.Code;
                     }
                     /**/
+
+                    //TODO:HuyNH remove more empty line;
+                    segment.Code = Regex.Replace(segment.Code,"[\r\n]+", "\n");
                 }
 			}
 
