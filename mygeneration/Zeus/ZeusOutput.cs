@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.IO;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace Zeus
 {
@@ -318,7 +319,13 @@ namespace Zeus
 
 			if (writer != null) 
 			{
-				writer.Write(_output.ToString());
+                //System.Diagnostics.Debugger.Launch();
+                string outputWrite = _output.ToString();
+                outputWrite = Regex.Replace(outputWrite, "[\t ]+[\r\n]+", "\n", RegexOptions.Multiline);
+                outputWrite = Regex.Replace(outputWrite, "[\r\n]+", "\n", RegexOptions.Multiline);
+               
+                //outputWrite = outputWrite.Replace("\n\n", "\n");
+                writer.Write(outputWrite);
                 writer.Close();
 
                 this.AddSavedFile(path);
