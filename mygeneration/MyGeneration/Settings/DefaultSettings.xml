@@ -17,4 +17,6 @@
 	languagepath="C:\Program Files\MyGeneration\Settings\Languages.xml"
 	usermetapath="C:\Program Files\MyGeneration\Settings\UserMetaData.xml"
 	/>
+  <Setting Name="DbDriver" value="MYSQL2" />
+  <Setting Name="ConnectionString" value="Database=Joomla_2.5.0_Beta2-Full_Package;Data Source=localhost;User Id=root;Password=;" />
 </DefaultSettings>

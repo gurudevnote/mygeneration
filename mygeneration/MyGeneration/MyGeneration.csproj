@@ -112,6 +112,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <ProjectReference Include="..\..\SharpZipAll\src\ICSharpCode.SharpZLib.csproj">
+      <Project>{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}</Project>
+      <Name>ICSharpCode.SharpZLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EngineInterface\PluginInterfaces.csproj">
       <Name>PluginInterfaces</Name>
       <Project>{61B369D1-95DD-4158-9F30-2E051CEB9D50}</Project>
