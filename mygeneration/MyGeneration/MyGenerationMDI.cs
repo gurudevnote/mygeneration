@@ -62,6 +62,7 @@ namespace MyGeneration
         private string startupPath;
         private string[] startupFiles;
         private int indexImgAnimate = -1;
+		private string templateFolder = "";
 
         public MyGenerationMDI(string startupPath, params string[] args)
         {
@@ -335,17 +336,31 @@ namespace MyGeneration
 
         private void PickFiles()
         {
-            DefaultSettings settings = DefaultSettings.Instance;
+            if(string.IsNullOrEmpty(templateFolder))
+			{
+				templateFolder = Directory.GetCurrentDirectory();
+			}
+			DefaultSettings settings = DefaultSettings.Instance;
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            openFileDialog.InitialDirectory = templateFolder;
             openFileDialog.Filter = EditorManager.OpenFileDialogString;
             openFileDialog.RestoreDirectory = true;
             openFileDialog.Multiselect = true;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.OpenDocuments(openFileDialog.FileNames);
+                if(openFileDialog.FileNames.Length > 0)
+				{
+					templateFolder = Path.GetDirectoryName(openFileDialog.FileNames[0]);// openFileDialog.InitialDirectory;
+				}
+				else
+				{
+					templateFolder = openFileDialog.InitialDirectory;
+				}
+				
+				MessageBox.Show(templateFolder);				
+				this.OpenDocuments(openFileDialog.FileNames);
             }
         }
 
