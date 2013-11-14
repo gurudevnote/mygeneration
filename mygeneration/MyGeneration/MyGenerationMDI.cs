@@ -357,9 +357,7 @@ namespace MyGeneration
 				else
 				{
 					templateFolder = openFileDialog.InitialDirectory;
-				}
-				
-				MessageBox.Show(templateFolder);				
+				}				
 				this.OpenDocuments(openFileDialog.FileNames);
             }
         }
