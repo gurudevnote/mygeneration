@@ -335,15 +335,16 @@ namespace MyGeneration
         }
 
         private void PickFiles()
-        {
-            if(string.IsNullOrEmpty(templateFolder))
-			{
-				templateFolder = Directory.GetCurrentDirectory();
-			}
+        {            
 			DefaultSettings settings = DefaultSettings.Instance;
+			if(string.IsNullOrEmpty(settings.DefaultTemplateDirectory))
+			{
+				settings.DefaultTemplateDirectory = Directory.GetCurrentDirectory();
+			}
+			
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = templateFolder;
+            openFileDialog.InitialDirectory = settings.DefaultTemplateDirectory;
             openFileDialog.Filter = EditorManager.OpenFileDialogString;
             openFileDialog.RestoreDirectory = true;
             openFileDialog.Multiselect = true;
@@ -352,12 +353,8 @@ namespace MyGeneration
             {
                 if(openFileDialog.FileNames.Length > 0)
 				{
-					templateFolder = Path.GetDirectoryName(openFileDialog.FileNames[0]);// openFileDialog.InitialDirectory;
-				}
-				else
-				{
-					templateFolder = openFileDialog.InitialDirectory;
-				}				
+					settings.DefaultTemplateDirectory = Path.GetDirectoryName(openFileDialog.FileNames[0]);// openFileDialog.InitialDirectory;
+				}							
 				this.OpenDocuments(openFileDialog.FileNames);
             }
         }
