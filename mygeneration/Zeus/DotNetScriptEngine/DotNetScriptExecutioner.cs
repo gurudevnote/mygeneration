@@ -29,7 +29,9 @@ namespace Zeus.DotNetScript
         protected string _compilerVersion = null;
         protected Stack<Assembly> _assemblyStack = new Stack<Assembly>();
 
-		protected event ShowGUIEventHandler ShowGUI;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        protected event ShowGUIEventHandler ShowGUI;
 
 		public DotNetScriptExecutioner(DotNetScriptEngine engine) 
 		{
@@ -118,6 +120,7 @@ namespace Zeus.DotNetScript
 			catch (Exception ex)
 			{
 				this.Cleanup( assemblyLoaded );
+                log.Error(ex);
 				throw ex;
 			}
         }

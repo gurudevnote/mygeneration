@@ -87,6 +87,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\lib\thirdparty\ADODB.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\lib\log4net\2.0\release\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="ScintillaNET, Version=1.0.3844.28993, Culture=neutral, PublicKeyToken=a8e8a5e40ca52c59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\thirdparty\ScintillaNET.dll</HintPath>
@@ -186,7 +189,9 @@
     <EmbeddedResource Include="Settings\ScintillaNET.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Settings\CSharp.INI" />
     <None Include="Web References\com.mygenerationsoftware.www\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
